@@ -25,6 +25,10 @@ functions
 [ ] update calc list when new calc is made
 [ ]
 
+css - after functional
+[ ] add sourced font/s to vendors folder (shlop?)
+
+
 
 //NOTE: You can send an object back as a response to a POST request or follow up the POST with a GET request to retrieve the data. Using a GET request to follow up is more common at Prime and will put you in a better position working on the History feature below.
 
