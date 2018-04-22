@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 5000;
+const PORT = 5000; //add heroku port before deploying
 
 const addCalcs = require('./modules/addition');
 const subCalcs = require('./modules/subtraction');
 const multCalcs = require('./modules/multiply');
-// const divideCalcs = require('./modules/divide');
+const divideCalcs = require('./modules/divide');
 
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,6 +49,19 @@ app.post('/multiply', (req, res) => {
     multCalcs.push(req.body);
     res.sendStatus(200);
 });
+
+//division routes
+app.get('/divide-calcs', (req, res) => {
+    console.log(divideCalcs);
+    res.send(divideCalcs);
+});
+
+app.post('/divide', (req, res) => {
+    console.log(req.body);
+    divideCalcs.push(req.body);
+    res.sendStatus(200);
+});
+
 
 
 //hEY!! listen!! 

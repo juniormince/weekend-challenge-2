@@ -123,6 +123,15 @@ function newDivi() {
         type: 'Divide'
     }
     console.log('thats numberwang', newDivi);
+    $.ajax({
+        method: 'POST',
+        url: '/divide',
+        data: newDivi
+    })
+        .then(function (response) {
+            console.log(response);
+            getAllDivis();
+        });
 }
 
 function getAllDivis() {
@@ -133,9 +142,16 @@ function getAllDivis() {
         .then(function (response) {
             console.log(response);
             //move calculation functions to server side
+            let xNumber = Number($('#first').val());
+            let yNumber = Number($('#second').val());
+            let sum = xNumber / yNumber;
+            $('#calculations').prepend(`<p> ${xNumber} / ${yNumber} = ${sum} </p>`);
         });
 }
 
+
+
+//refresh button
 function empty() {
     console.log('empty button works');
     $('#calculations').empty();
