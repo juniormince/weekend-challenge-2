@@ -19,6 +19,25 @@ function newAdd() {
         type: 'Add'
     }
     console.log('thats numberwang', newAdd);
+
+    $.ajax({
+        method: 'POST',
+        url: '/addition',
+        data: newAdd
+    })
+    .then(function(response)    {
+        console.log(response);
+    });
+}
+
+function getAllAdds()   {
+    $.ajax({
+        method: 'GET',
+        url: '/add-calcs'
+    })
+    .then(function(response)    {
+        console.log(response);
+    });
 }
 
 function newSub() {

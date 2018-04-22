@@ -1,4 +1,5 @@
-module.exports = {
+module.exports = [{
     //array of addition objects here
 }
+];
 
