@@ -2,15 +2,18 @@
 
 to-do list:
 
-[ ] initial files - html css script, in folder
-[ ] node modules
-[ ] download jquery
-[ ] set up / check server connection
-[ ] check client side connections
+[x] initial files - html css script, in folder
+[x] node modules
+[x] download jquery
+[x] set up / check server connection
+[x] add npm start script code to json
+[x] check client side connections
 
 client side - calculator
-[ ] take calculations / 2 inputs
-[ ] 4 buttons - per calc (add, sub, mult, divide)
+[x] take calculations / make 2 inputs
+[x] 4 buttons - per calc (add, sub, mult, divide)
+[x] buttons log check
+[ ] make buttons functional 
 [ ] clear button - reset experience
 
 server side - calc module(s??)
