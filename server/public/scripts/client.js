@@ -40,10 +40,10 @@ function getAllAdds() {
         .then(function (response) {
             console.log(response);
             //move calculation functions to server side
-                let xNumber = Number($('#first').val());
-                let yNumber = Number($('#second').val());
-                let sum = xNumber + yNumber;
-                $('#calculations').prepend(`<p> ${xNumber} + ${yNumber} = ${sum} </p>`);
+            let xNumber = Number($('#first').val());
+            let yNumber = Number($('#second').val());
+            let sum = xNumber + yNumber;
+            $('#calculations').prepend(`<p> ${xNumber} + ${yNumber} = ${sum} </p>`);
         });
 }
 
@@ -55,6 +55,15 @@ function newSub() {
         type: 'Subtract'
     }
     console.log('thats numberwang', newSub);
+    $.ajax({
+        method: 'POST',
+        url: '/subtract',
+        data: newSub
+    })
+        .then(function (response) {
+            console.log(response);
+            getAllSubs();
+        });
 }
 
 function getAllSubs() {
@@ -65,6 +74,10 @@ function getAllSubs() {
         .then(function (response) {
             console.log(response);
             //move calculation functions to server side
+            let xNumber = Number($('#first').val());
+            let yNumber = Number($('#second').val());
+            let sum = xNumber - yNumber;
+            $('#calculations').prepend(`<p> ${xNumber} - ${yNumber} = ${sum} </p>`);
         });
 }
 
@@ -81,10 +94,10 @@ function newMult() {
         url: '/multiply',
         data: newMult
     })
-    .then(function (response)   {
-        console.log(response);
-        getAllMults();
-    });
+        .then(function (response) {
+            console.log(response);
+            getAllMults();
+        });
 }
 
 function getAllMults() {
@@ -96,9 +109,9 @@ function getAllMults() {
             console.log(response);
             //move calculation functions to server side
             let xNumber = Number($('#first').val());
-                let yNumber = Number($('#second').val());
-                let sum = xNumber * yNumber;
-                $('#calculations').prepend(`<p> ${xNumber} x ${yNumber} = ${sum} </p>`);
+            let yNumber = Number($('#second').val());
+            let sum = xNumber * yNumber;
+            $('#calculations').prepend(`<p> ${xNumber} x ${yNumber} = ${sum} </p>`);
         });
 }
 

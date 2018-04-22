@@ -4,7 +4,7 @@ const app = express();
 const PORT = 5000;
 
 const addCalcs = require('./modules/addition');
-// const subCalcs = require('./modules/subtraction');
+const subCalcs = require('./modules/subtraction');
 const multCalcs = require('./modules/multiply');
 // const divideCalcs = require('./modules/divide');
 
@@ -22,6 +22,18 @@ app.get('/add-calcs', (req, res) => {
 app.post('/addition', (req, res) => {
     console.log(req.body);
     addCalcs.push(req.body);
+    res.sendStatus(200);
+});
+
+//subtraction routes
+app.get('/sub-calcs', (req, res) => {
+    console.log(subCalcs);
+    res.send(subCalcs);
+});
+
+app.post('/subtract', (req, res) => {
+    console.log(req.body);
+    subCalcs.push(req.body);
     res.sendStatus(200);
 });
 
