@@ -9,6 +9,7 @@ function onReady() {
     $('#mathSub').on('click', newSub);
     $('#mathMult').on('click', newMult);
     $('#mathDivi').on('click', newDivi);
+    $('#clearButton').on('click', empty);
 }
 
 function newAdd() {
@@ -19,25 +20,29 @@ function newAdd() {
         type: 'Add'
     }
     console.log('thats numberwang', newAdd);
-
     $.ajax({
         method: 'POST',
         url: '/addition',
         data: newAdd
     })
-    .then(function(response)    {
-        console.log(response);
-    });
+        .then(function (response) {
+            console.log(response);
+            getAllAdds();
+        });
 }
 
-function getAllAdds()   {
+
+function getAllAdds() {
     $.ajax({
         method: 'GET',
         url: '/add-calcs'
     })
-    .then(function(response)    {
-        console.log(response);
-    });
+        .then(function (response) {
+            console.log(response);
+            //move calculation functions to server side
+            // $('#calculations').append(`<p> work pls?? </p>`); --doesn't work
+        });
+        // $('#calculations').append(`<p> work pls??</p>`); --works
 }
 
 function newSub() {
@@ -50,6 +55,17 @@ function newSub() {
     console.log('thats numberwang', newSub);
 }
 
+function getAllSubs() {
+    $.ajax({
+        method: 'GET',
+        url: '/sub-calcs'
+    })
+        .then(function (response) {
+            console.log(response);
+            //move calculation functions to server side
+        });
+}
+
 function newMult() {
     console.log('multiply button works');
     const newMult = {
@@ -58,6 +74,17 @@ function newMult() {
         type: 'Multiply'
     }
     console.log('thats numberwang', newMult);
+}
+
+function getAllMults() {
+    $.ajax({
+        method: 'GET',
+        url: '/mult-calcs'
+    })
+        .then(function (response) {
+            console.log(response);
+            //move calculation functions to server side
+        });
 }
 
 function newDivi() {
@@ -69,5 +96,30 @@ function newDivi() {
     }
     console.log('thats numberwang', newDivi);
 }
+
+function getAllDivis() {
+    $.ajax({
+        method: 'GET',
+        url: '/divide-calcs'
+    })
+        .then(function (response) {
+            console.log(response);
+            //move calculation functions to server side
+        });
+}
+
+function empty() {
+    console.log('empty button works');
+    $('#calculations').empty();
+}
+
+
+
+
+
+
+
+
+
 
 //for later-- .prepend adds to top of list on DOM 

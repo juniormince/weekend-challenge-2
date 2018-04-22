@@ -4,6 +4,9 @@ const app = express();
 const PORT = 5000;
 
 const addCalcs = require('./modules/addition');
+// const subCalcs = require('./modules/subtraction');
+// const multCalcs = require('./modules/multiply');
+// const divideCalcs = require('./modules/divide');
 
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
