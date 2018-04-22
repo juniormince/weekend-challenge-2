@@ -9,19 +9,20 @@ const addCalcs = require('./modules/addition');
 // const divideCalcs = require('./modules/divide');
 
 app.use(express.static('server/public'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/add-calcs', (req,res) => {
+app.get('/add-calcs', (req, res) => {
     console.log(addCalcs);
+    res.send(addCalcs);
 });
 
-app.post('/addition', (req, res) =>{
+app.post('/addition', (req, res) => {
     console.log(req.body);
-    //addCalcs.push(req.body);
+    addCalcs.push(req.body);
     res.sendStatus(200);
-})
+});
 
 
-app.listen(PORT, () =>{
+app.listen(PORT, () => {
     console.log(`listening on port: ${PORT}`);
 });

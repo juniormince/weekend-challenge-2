@@ -40,9 +40,11 @@ function getAllAdds() {
         .then(function (response) {
             console.log(response);
             //move calculation functions to server side
-            // $('#calculations').append(`<p> work pls?? </p>`); --doesn't work
+            response.forEach(function (additionyay) {
+                $('#calculations').append(`<p> work pls?? ${additionyay.x} </p>`); //--doesn't work
+            });
         });
-        // $('#calculations').append(`<p> work pls??</p>`); --works
+    // $('#calculations').append(`<p> work pls??</p>`); //--works
 }
 
 function newSub() {
