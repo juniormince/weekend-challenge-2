@@ -13,13 +13,13 @@ client side - calculator
 [x] take calculations / make 2 inputs
 [x] 4 buttons - per calc (add, sub, mult, divide)
 [x] buttons log check
-[ ] make buttons functional 
-[ ] clear button - reset experience
+[x] make buttons functional 
+[x] clear button - reset experience
 
 server side - calc module(s??)
 [ ] return one export
 functions
-[ ] get inputs & req
+[x] get inputs & req
 [ ] calculation functions (add, sub, mult, divide)
 [ ] keep historical records (array of objects)
 [ ] update calc list when new calc is made
