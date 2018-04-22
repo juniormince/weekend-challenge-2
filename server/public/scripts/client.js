@@ -43,7 +43,7 @@ function getAllAdds() {
                 let xNumber = Number($('#first').val());
                 let yNumber = Number($('#second').val());
                 let sum = xNumber + yNumber;
-                $('#calculations').append(`<p> ${xNumber} + ${yNumber} = ${sum} </p>`);
+                $('#calculations').prepend(`<p> ${xNumber} + ${yNumber} = ${sum} </p>`);
         });
 }
 
@@ -76,6 +76,15 @@ function newMult() {
         type: 'Multiply'
     }
     console.log('thats numberwang', newMult);
+    $.ajax({
+        method: 'POST',
+        url: '/multiply',
+        data: newMult
+    })
+    .then(function (response)   {
+        console.log(response);
+        getAllMults();
+    });
 }
 
 function getAllMults() {
@@ -86,6 +95,10 @@ function getAllMults() {
         .then(function (response) {
             console.log(response);
             //move calculation functions to server side
+            let xNumber = Number($('#first').val());
+                let yNumber = Number($('#second').val());
+                let sum = xNumber * yNumber;
+                $('#calculations').prepend(`<p> ${xNumber} x ${yNumber} = ${sum} </p>`);
         });
 }
 
