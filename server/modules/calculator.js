@@ -22,14 +22,14 @@ class Calculator {
         if (this.type == '+') {
             this.result = +this.x + +this.y;
         }
-        else if (this.type = '-') {
-            this.result = this.x - this.y;
+        else if (this.type == '-') {
+            this.result = +this.x - +this.y;
         }
-        else if (this.type = '*') {
-            this.result = this.x * this.y;
+        else if (this.type == '*') {
+            this.result = +this.x * +this.y;
         }
-        else if (this.type = '/') {
-            this.result = this.x / this.y;
+        else if (this.type == '/') {
+            this.result = +this.x / +this.y;
         }
         this.history.push(`${this.x} ${this.type} ${this.y} = ${this.result}`);
     }

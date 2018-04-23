@@ -6,9 +6,9 @@ function onReady() {
     console.log('jquery czeck');
 
     $('#mathAdd').on('click', newAdd);
-    // $('#mathSub').on('click', newSub);
-    // $('#mathMult').on('click', newMult);
-    // $('#mathDivi').on('click', newDivi);
+    $('#mathSub').on('click', newSub);
+    $('#mathMult').on('click', newMult);
+    $('#mathDivi').on('click', newDivi);
     $('#clearButton').on('click', empty);
 
 }
@@ -16,7 +16,6 @@ function onReady() {
 
 
 
-//gonna mess this up here we go
 function newAdd() {
     console.log('add button works');
     const newAdd = {
@@ -36,7 +35,6 @@ function newAdd() {
         });
 }
 
-//gonna mess this up here we go
 function getAllAdds() {
     $.ajax({
         method: 'GET',
@@ -44,120 +42,118 @@ function getAllAdds() {
     })
         .then(function (response) {
             console.log(response);
-                $('#calculations').empty();
+            $('#calculations').empty();
             response.forEach(MATHHHH => {
                 $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
             });
         });
 }
 
-// function newSub() {
-//     console.log('subtraction button works');
-//     const newSub = {
-//         x: $('#first').val(),
-//         y: $('#second').val(),
-//         type: 'Subtract'
-//     }
-//     console.log('thats numberwang', newSub);
-//     $.ajax({
-//         method: 'POST',
-//         url: '/subtract',
-//         data: newSub
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             getAllSubs();
-//         });
-// }
+function newSub() {
+    console.log('subtraction button works');
+    const newSub = {
+        x: $('#first').val(),
+        y: $('#second').val(),
+        type: '-'
+    }
+    console.log('thats numberwang', newSub);
+    $.ajax({
+        method: 'POST',
+        url: '/calculator',
+        data: newSub
+    })
+        .then(function (response) {
+            console.log(response);
+            getAllSubs();
+        });
+}
 
-// function getAllSubs() {
-//     $.ajax({
-//         method: 'GET',
-//         url: '/sub-calcs'
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             //move calculation functions to server side
-//             let xNumber = Number($('#first').val());
-//             let yNumber = Number($('#second').val());
-//             let sum = xNumber - yNumber;
-//             $('#calculations').prepend(`<p> ${xNumber} - ${yNumber} = ${sum} </p>`);
-//         });
-// }
+function getAllSubs() {
+    $.ajax({
+        method: 'GET',
+        url: '/calculator'
+    })
+        .then(function (response) {
+            console.log(response);
+            $('#calculations').empty();
+            response.forEach(MATHHHH => {
+                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+            });
+        });
+}
 
-// function newMult() {
-//     console.log('multiply button works');
-//     const newMult = {
-//         x: $('#first').val(),
-//         y: $('#second').val(),
-//         type: 'Multiply'
-//     }
-//     console.log('thats numberwang', newMult);
-//     $.ajax({
-//         method: 'POST',
-//         url: '/multiply',
-//         data: newMult
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             getAllMults();
-//         });
-// }
+function newMult() {
+    console.log('multiply button works');
+    const newMult = {
+        x: $('#first').val(),
+        y: $('#second').val(),
+        type: '*'
+    }
+    console.log('thats numberwang', newMult);
+    $.ajax({
+        method: 'POST',
+        url: '/calculator',
+        data: newMult
+    })
+        .then(function (response) {
+            console.log(response);
+            getAllMults();
+        });
+}
 
-// function getAllMults() {
-//     $.ajax({
-//         method: 'GET',
-//         url: '/mult-calcs'
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             //move calculation functions to server side
-//             let xNumber = Number($('#first').val());
-//             let yNumber = Number($('#second').val());
-//             let sum = xNumber * yNumber;
-//             $('#calculations').prepend(`<p> ${xNumber} x ${yNumber} = ${sum} </p>`);
-//         });
-// }
+function getAllMults() {
+    $.ajax({
+        method: 'GET',
+        url: '/calculator'
+    })
+        .then(function (response) {
+            console.log(response);
+            $('#calculations').empty();
+            response.forEach(MATHHHH => {
+                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+            });
+        });
+}
 
-// function newDivi() {
-//     console.log('divide button works');
-//     const newDivi = {
-//         x: $('#first').val(),
-//         y: $('#second').val(),
-//         type: 'Divide'
-//     }
-//     console.log('thats numberwang', newDivi);
-//     $.ajax({
-//         method: 'POST',
-//         url: '/divide',
-//         data: newDivi
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             getAllDivis();
-//         });
-// }
+function newDivi() {
+    console.log('divide button works');
+    const newDivi = {
+        x: $('#first').val(),
+        y: $('#second').val(),
+        type: '/'
+    }
+    console.log('thats numberwang', newDivi);
+    $.ajax({
+        method: 'POST',
+        url: '/calculator',
+        data: newDivi
+    })
+        .then(function (response) {
+            console.log(response);
+            getAllDivis();
+        });
+}
 
-// function getAllDivis() {
-//     $.ajax({
-//         method: 'GET',
-//         url: '/divide-calcs'
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//             //move calculation functions to server side
-//             let xNumber = Number($('#first').val());
-//             let yNumber = Number($('#second').val());
-//             let sum = xNumber / yNumber;
-//             $('#calculations').prepend(`<p> ${xNumber} / ${yNumber} = ${sum} </p>`);
-//         });
-// }
+function getAllDivis() {
+    $.ajax({
+        method: 'GET',
+        url: '/calculator'
+    })
+        .then(function (response) {
+            console.log(response);
+            $('#calculations').empty();
+            response.forEach(MATHHHH => {
+                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+            });
+        });
+}
 
 
 //refresh button
 function empty() {
     console.log('empty button works');
     $('#calculations').empty();
+    $('input').val('');
 }
 
 
