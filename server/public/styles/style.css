@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'shlopfontregular';
+    src: url('/vendors/shlop/shlop-webfont.woff2') format('woff2'),
+         url('/vendors/shlop/shlop-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'webfontregular';
+    src: url('shlop-webfont.woff2') format('woff2'),
+         url('shlop-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    padding: 50px 80px 50px;
+    font-size: 32px;
+    font-family: 'shlopfontregular', 'Courier New';
+    line-height: 1.3;
+    letter-spacing: 3px;
+}
+
+input, button {
+    font-size: 14px;
+    font-family: 'shlopfontregular', 'Courier New';
+    line-height: 1.3;
+    letter-spacing: 2px;
+}

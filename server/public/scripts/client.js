@@ -44,7 +44,7 @@ function getAllAdds() {
             console.log(response);
             $('#calculations').empty();
             response.forEach(MATHHHH => {
-                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+                $('#calculations').prepend(`<p> ${MATHHHH} ! ah, ha, haa</p>`);
             });
         });
 }
@@ -77,7 +77,7 @@ function getAllSubs() {
             console.log(response);
             $('#calculations').empty();
             response.forEach(MATHHHH => {
-                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+                $('#calculations').prepend(`<p> ${MATHHHH} ! ah, ha, haa</p>`);
             });
         });
 }
@@ -110,7 +110,7 @@ function getAllMults() {
             console.log(response);
             $('#calculations').empty();
             response.forEach(MATHHHH => {
-                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+                $('#calculations').prepend(`<p> ${MATHHHH} ! ah, ha, haa</p>`);
             });
         });
 }
@@ -143,7 +143,7 @@ function getAllDivis() {
             console.log(response);
             $('#calculations').empty();
             response.forEach(MATHHHH => {
-                $('#calculations').prepend(`<p> ${MATHHHH} </p>`);
+                $('#calculations').prepend(`<p> ${MATHHHH} ! ah, ha, haa</p>`);
             });
         });
 }
